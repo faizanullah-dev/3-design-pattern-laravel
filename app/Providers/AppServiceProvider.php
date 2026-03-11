@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Models\Brand;
 use App\Models\Category;
 use App\Models\Post;
 use App\Observers\PostObserver;
@@ -11,6 +12,8 @@ use Illuminate\Support\ServiceProvider;
 use App\Observers\CategoryObserver;
 use App\Repositories\CategoryRepository;
 use App\Repositories\Interfaces\CategoryRepositoryInterface;
+use App\Repositories\BrandRepository;
+use App\Repositories\Interfaces\BrandRepositoryInterface;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -24,6 +27,8 @@ class AppServiceProvider extends ServiceProvider
             PostRepository::class
         );
         $this->app->bind(CategoryRepositoryInterface::class, CategoryRepository::class);
+        $this->app->bind(BrandRepositoryInterface::class, BrandRepository::class); // ✅ naya
+
     }
 
     /**
